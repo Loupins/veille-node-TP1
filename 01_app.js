@@ -13,6 +13,10 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.set('view engine', 'ejs'); // générateur de template
 
 ///////////////////////////////////// ROUTE ACCUEIL
+app.get('/', function(req,res) {
+	res.render('composants/accueil.ejs')
+})
+
 app.get('/accueil', function(req,res) {
 	res.render('composants/accueil.ejs')
 })
@@ -60,6 +64,11 @@ app.post('/ajouter', (req, res) => {
 	}
 	
 })
+
+app.post('/rechercher', (req, res) => {
+	res.redirect('/adresses');
+})
+
 
 app.get('/peupler', (req, res) => {
 	let tableauPersonne = peupler();
