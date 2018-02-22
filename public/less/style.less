@@ -1,0 +1,105 @@
+body {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	header {
+		background-color: #d6ebf2;
+		padding: 5px;
+		nav {
+			background-color: lightblue;
+			padding: 8px;
+			a {
+				text-decoration: none;
+				color: black;
+				margin-left: 10px;
+				svg {
+					margin-right: 5px;
+					transition: transform 1s;
+					&:hover {
+						transform: scale(1.3);
+					}
+				}
+			}
+		}
+		section {
+			padding-top: 10px;
+			svg {
+				transition: transform 1s;
+				&:hover {
+					transform: scale(1.2)
+				}
+			}
+		}
+	}
+
+	h3 {
+		font-size: 23px;
+	}
+
+	form {
+		padding: 5px;
+		input {
+			border-radius: 3px;
+			border: 1px solid black;
+			height: 21px;
+			padding: 4px;
+		}
+		button {
+			border: 1px solid black;
+			border-radius: 3px;
+			padding: 4px;
+			cursor: pointer;
+			&:hover {
+				background: white;
+			}
+		}
+	}
+
+	.tableau {
+		padding: 5px;
+		margin: 0 auto;
+		margin-top: 15px;
+		margin-bottom: 15px;
+		border-collapse: collapse;
+		td,th {
+			border: 1px solid #aaa;
+			padding: 10px;
+		}
+		tr {
+			transition: background 1s;
+			&:hover {
+				background: lightgray;
+				cursor: pointer;
+			}
+		}
+		th {
+			background: lightblue;
+			a {
+				text-decoration: none;
+				color: black;
+				transition: color 1s;
+				&:hover {
+					color: darkblue;
+				}
+			}
+		}
+
+		td {
+			a {
+				color: black;
+			}
+		}
+	}
+
+	footer {
+		padding-top: 2px;
+		padding-bottom: 2px;
+		background-color: lightblue;
+		ul {
+			list-style-type: none;
+		}
+	}
+}
+
+
