@@ -66,13 +66,22 @@ app.post('/ajouter', (req, res) => {
 
 app.post('/rechercher', (req, res) => {
 	var rechercher = req.body.rechercher;
-	var cursor = db.collection('adresse').find({$or : [{nom:{'$regex' : rechercher + '', '$options' : 'i'},prenom:{'$regex' : rechercher + '', '$options' : 'i'}}]}).toArray(function(err, resultat){
-		if (err) return console.log(err)
-		console.log(rechercher);
-	 	console.log('util = ' + util.inspect(resultat));
-		 // transfert du contenu vers la vue index.ejs (renders)
-		 // affiche le contenu de la BD
-		res.render('composants/adresses.ejs', {adresses: resultat})
+	var cursor = db.collection('adresse').find(
+		{
+			$or : [
+				{nom:{'$regex' : rechercher + '', '$options' : 'i'}},
+				{prenom:{'$regex' : rechercher + '', '$options' : 'i'}},
+				{telephone:{'$regex' : rechercher + '', '$options' : 'i'}},
+				{courriel:{'$regex' : rechercher + '', '$options' : 'i'}}
+				
+			]
+		}).toArray(function(err, resultat){
+			if (err) return console.log(err)
+			console.log(rechercher);
+		 	console.log('util = ' + util.inspect(resultat));
+			 // transfert du contenu vers la vue index.ejs (renders)
+			 // affiche le contenu de la BD
+			res.render('composants/adresses.ejs', {adresses: resultat})
 	})
 })
 

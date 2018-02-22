@@ -4,8 +4,8 @@ const tabNom = tableau.tabNom;
 const tabPrenom = tableau.tabPrenom;
 const tabCourriel = tableau.tabCourriel;
 const tabTelephone = tableau.tabTelephone;
-const max = tabNom.length;
-console.log('max = ' + max);
+const tabCaractere = tableau.tabCaractere;
+
 const peupler_json = () => {
 	let tabToutesLesPersonnes = [];
 	let tabPersonne = [];
@@ -13,13 +13,30 @@ const peupler_json = () => {
 	for (let k=0;k<20;k++) {
 		tabPersonne = [];
 		position = Math.floor(Math.random()*tabNom.length);
-		tabPersonne.push(tabNom[position]);
+		var nom = tabNom[position];
+		tabPersonne.push(nom);
+
 		position = Math.floor(Math.random()*tabPrenom.length);
-		tabPersonne.push(tabPrenom[position]);
+		var prenom = tabPrenom[position];
+		tabPersonne.push(prenom);
+
 		position = Math.floor(Math.random()*tabCourriel.length);
-		tabPersonne.push(tabCourriel[position]);
+		var courriel = tabCourriel[position];
+		position = Math.floor(Math.random()*tabCaractere.length);
+		var caractere = tabCaractere[position];
+		var email = prenom.toLowerCase() + caractere + nom.toLowerCase() + "@" + courriel;
+		tabPersonne.push(email);
+
 		position = Math.floor(Math.random()*tabTelephone.length);
-		tabPersonne.push(tabTelephone[position]);
+		var telephone = tabTelephone[position];
+		for(var i = 0; i<7;i++) {
+			telephone += Math.floor(Math.random() * 10)
+			if(i==2) {
+				telephone += "-";
+			}
+		}
+		tabPersonne.push(telephone);
+
 		tabToutesLesPersonnes.push(tabPersonne);
 	}
 	console.log("tableau personne : " + tabToutesLesPersonnes);
