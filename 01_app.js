@@ -22,13 +22,12 @@ app.get('/accueil', function(req,res) {
 })
 
 app.get('/adresses', function (req, res) {
-   var cursor = db.collection('adresse')
-                .find().toArray(function(err, resultat){
-	if (err) return console.log(err)
- 	console.log('util = ' + util.inspect(resultat));
-	 // transfert du contenu vers la vue index.ejs (renders)
-	 // affiche le contenu de la BD
-	res.render('composants/adresses.ejs', {adresses: resultat})
+    var cursor = db.collection('adresse').find().toArray(function(err, resultat){
+		if (err) return console.log(err)
+	 	console.log('util = ' + util.inspect(resultat));
+		 // transfert du contenu vers la vue index.ejs (renders)
+		 // affiche le contenu de la BD
+		res.render('composants/adresses.ejs', {adresses: resultat})
 	}) 
 })
 
@@ -66,7 +65,15 @@ app.post('/ajouter', (req, res) => {
 })
 
 app.post('/rechercher', (req, res) => {
-	res.redirect('/adresses');
+	var rechercher = req.body.rechercher;
+	var cursor = db.collection('adresse').find({$or : [{nom:{'$regex' : rechercher + '', '$options' : 'i'},prenom:{'$regex' : rechercher + '', '$options' : 'i'}}]}).toArray(function(err, resultat){
+		if (err) return console.log(err)
+		console.log(rechercher);
+	 	console.log('util = ' + util.inspect(resultat));
+		 // transfert du contenu vers la vue index.ejs (renders)
+		 // affiche le contenu de la BD
+		res.render('composants/adresses.ejs', {adresses: resultat})
+	})
 })
 
 
