@@ -85,6 +85,15 @@ app.post('/rechercher', (req, res) => {
 	})
 })
 
+app.get('/profil/:id', (req, res) => {
+	var identifiant = ObjectID(req.params.id);
+	db.collection('adresse').findOne({"_id":identifiant}, function(err, resultat) {
+	    if (err) throw err;
+	    console.log(resultat);
+	    res.render('composants/profil.ejs', {profil: resultat})
+	});
+})
+
 
 app.get('/peupler', (req, res) => {
 	let tableauPersonne = peupler();

@@ -9,7 +9,7 @@
  </tr>
  <% adresses.forEach(elm => {%>
  <tr>
- <td><%= elm._id %></td>
+ <td><a href="/profil/<%= elm._id %>"><%= elm._id %></a></td>
  <td contenteditable='true'><%= elm.nom %></td>
  <td contenteditable='true'><%= elm.prenom %></td>
  <td contenteditable='true'><%= elm.telephone %></td>

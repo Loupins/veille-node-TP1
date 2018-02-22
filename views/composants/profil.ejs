@@ -1,0 +1,14 @@
+<%- include('head') %> 
+<body>
+ <%- include('entete') %>
+ <img src="/img/default_man.png" alt="default" height="125">
+ <% var tab = Object.values(profil)%>
+ <p>Identifiant : <%- tab[0] %></p>
+ <p>Nom : <%- tab[1] %></p>
+ <p>Prénom : <%- tab[2] %></p>
+ <p>Courriel : <%- tab[3] %></p>
+ <p>Téléphone : <%- tab[4] %></p>
+ <a href="/adresses">Retour</a></p>
+ <%- include('footer') %>
+</body>
+</html>
