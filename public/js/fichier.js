@@ -28,11 +28,10 @@
 	});
 
 	$(".burger").on("click", function(event) {
-		if($("nav a").css("display") != "block") {
-			$("nav a").css("display", "block");
+		if($(".menu").css("display") != "block") {
+			$(".menu").css("display", "block");
 		} else {
-			$("nav a").css("display", "none");
-			document.querySelectorAll("nav a")[4].style.display =  "block";
+			$(".menu").css("display", "none");
 		}
 		
 	});
