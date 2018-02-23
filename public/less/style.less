@@ -7,12 +7,17 @@ body {
 		background-color: #d6ebf2;
 		padding-bottom: 5px;
 		nav {
+			display: flex;
+			justify-content: center;
 			background-color: lightblue;
 			padding: 8px;
 			a {
 				text-decoration: none;
 				color: black;
-				margin-left: 10px;
+				margin-left: 30px;
+				&:first-child {
+					margin-left: 0px;
+				}
 				svg {
 					margin-right: 5px;
 					transition: transform 1s;
