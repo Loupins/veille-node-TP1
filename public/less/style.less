@@ -17,7 +17,14 @@ body {
 			position: relative;
     		.logo {
     			span {
-    				margin-left: 10px;
+    				opacity: 0;
+    				margin-left: 0px;
+    				cursor: pointer;
+    				transition: margin-left 1s, opacity 1s;
+    				&:hover {
+    					opacity: 1;
+    					margin-left: 10px;
+    				}
     			}
     		}
 			.menu {
