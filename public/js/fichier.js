@@ -1,12 +1,12 @@
 (function(){
 	$(".sauver").on( "click", function(event) {
 		event.preventDefault();
-		var parent = $(this).parent().parent();
-		var identifiant = parent.children().eq(0);
-		var nom = parent.children().eq(1);
-		var prenom = parent.children().eq(2);
-		var telephone = parent.children().eq(3);
-		var courriel = parent.children().eq(4);
+		let parent = $(this).parent().parent();
+		let identifiant = parent.children().eq(0);
+		let nom = parent.children().eq(1);
+		let prenom = parent.children().eq(2);
+		let telephone = parent.children().eq(3);
+		let courriel = parent.children().eq(4);
 		console.log($("mon_formulaire_cache input").eq(0))
 		$(".mon_formulaire_cache input").eq(0).val(identifiant.text());
 		$(".mon_formulaire_cache input").eq(1).val(nom.text());
@@ -17,9 +17,9 @@
 	});
 
 	$("tr th a").on( "click", function(event) {
-		var cles = ["id", "nom", "prenom", "telephone", "courriel"];
-		var url = window.location.href.split("/");
-		var cle = url[4];
+		let cles = ["id", "nom", "prenom", "telephone", "courriel"];
+		let url = window.location.href.split("/");
+		let cle = url[4];
 		if(url[5] == 'asc') {
 			document.querySelectorAll("tr")[0].children[cles.indexOf(cle)].children[0].setAttribute("href", "/trier/"+cle+"/desc");
 		} else {
