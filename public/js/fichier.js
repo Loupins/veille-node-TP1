@@ -26,4 +26,14 @@
 			document.querySelectorAll("tr")[0].children[cles.indexOf(cle)].children[0].setAttribute("href", "/trier/"+cle+"/asc");
 		}
 	});
+
+	$(".burger").on("click", function(event) {
+		if($("nav a").css("display") != "block") {
+			$("nav a").css("display", "block");
+		} else {
+			$("nav a").css("display", "none");
+			document.querySelectorAll("nav a")[4].style.display =  "block";
+		}
+		
+	});
 }());
